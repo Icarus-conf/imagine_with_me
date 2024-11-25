@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: AppColor.bgColor,
         centerTitle: true,
         title: const Text(
-          "generating_imgs_by_ai",
+          "Imagine with me",
           style: TextStyle(
               fontWeight: FontWeight.bold, color: AppColor.bgTextColor),
         ),
@@ -102,7 +102,7 @@ class _HomeViewState extends State<HomeView> {
           SizedBox(
             height: 48,
             width: double.maxFinite,
-            child: ElevatedButton.icon(
+            child: ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(AppColor.themeColor),
               ),
@@ -111,11 +111,7 @@ class _HomeViewState extends State<HomeView> {
                   promptBloc.add(PromptEnteredEvent(prompt: controller.text));
                 }
               },
-              icon: const Icon(
-                Icons.generating_tokens,
-                color: AppColor.themeTextColor,
-              ),
-              label: const Text(
+              child: const Text(
                 "Generate",
                 style: TextStyle(
                     color: AppColor.themeTextColor,

@@ -30,11 +30,12 @@ class PromptBloc extends Bloc<PromptEvent, PromptState> {
       PromptInitialEvent event, Emitter<PromptState> emit) async {
     try {
       // Use rootBundle to load image as Uint8List from assets
-      Uint8List bytes = await rootBundle.load('assets/file.jpg').then((data) => data.buffer.asUint8List());
+      Uint8List bytes = await rootBundle
+          .load('assets/file.png')
+          .then((data) => data.buffer.asUint8List());
       emit(PromptGeneratingImageSuccessState(bytes));
     } catch (e) {
       emit(PromptGeneratingImageErrorState()); // Error state if asset not found
     }
   }
-
 }
